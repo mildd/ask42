@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NamesForm</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            let x = 1;
+            $('#btn').click(function (e) {
+                if (x < Infinity) {
+                    let input = $("#in").clone().attr({'name': 'name' + x, 'placeholder': 'NAME' + x});
+                    $('#new').append(input).append('<br>');
+                    x++;
+                }
+            });
+        });
+</script>
+</head>
+<body>
+<form method="POST" id="form">{% csrf_token %}
+    <div id="new">
+     <input type="text" id="in" name="name" placeholder="NAME"><br>
+    </div>
+    <button type="submit">POST</button>
+    <input type="button" id="btn" value="ADD">
+</form>
+</body>
+</html>
